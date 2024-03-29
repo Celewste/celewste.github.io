@@ -600,8 +600,7 @@ function item_decoder(file, using_editor) {
             var collision_type = arrayBuffer[mem_pos++];
             var break_hits = arrayBuffer[mem_pos++];
 
-            if ((break_hits % 6) !== 0) break_hits = break_hits + "r"
-            else break_hits = break_hits / 6
+            break_hits = break_hits
 
             var drop_chance = read_buffer_number(arrayBuffer, mem_pos, 4);
             mem_pos += 4;
