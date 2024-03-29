@@ -228,8 +228,7 @@ function process_item_encoder(result, using_txt) {
                 encoded_buffer_file[mem_pos++] = Number(result1[15]) // collision type
                 
                 // break hits
-                if (result1[16].includes("r")) encoded_buffer_file[mem_pos++] = Number(result1[16].slice(0, -1))
-                else encoded_buffer_file[mem_pos++] = Number(result1[16])
+                encoded_buffer_file[mem_pos++] = Number(result1[16])
 
                 // drop chance
                 write_buffer_number(mem_pos, 4, result1[17])
@@ -402,8 +401,7 @@ function process_item_encoder(result, using_txt) {
             encoded_buffer_file[mem_pos++] = result.items[a].is_stripey_wallpaper
             encoded_buffer_file[mem_pos++] = result.items[a].collision_type
 
-            if (isNaN(result.items[a].break_hits) && result.items[a].break_hits.includes("r")) encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits.slice(0, -1))
-            else encoded_buffer_file[mem_pos++] = Number(result.items[a].break_hits) * 6
+            encoded_buffer_file[mem_pos++] = result.items[a].break_hits
 
             write_buffer_number(mem_pos, 4, result.items[a].drop_chance)
             mem_pos += 4;
